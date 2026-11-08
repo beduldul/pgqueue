@@ -1,0 +1,17 @@
+[package]
+name = "pgqueue"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+description = "A job queue for Rust on top of Postgres: lease-based locking, retries with backoff, no extra broker."
+license = "MIT"
+readme = "README.md"
+keywords = ["queue", "jobs", "postgres", "worker", "task"]
+categories = ["database", "asynchronous"]
+
+[dependencies]
+anyhow = "1.0.104"
+chrono = "0.4.45"
+serde_json = "1.0.154"
+sqlx = { version = "0.9.0", default-features = false, features = ["runtime-tokio", "postgres", "chrono", "json", "derive"] }
+tokio = { version = "1.54.1", features = ["rt-multi-thread", "macros", "time"] }
